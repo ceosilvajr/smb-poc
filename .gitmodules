@@ -1,0 +1,3 @@
+[submodule "yalantis-camera-module"]
+	path = yalantis-camera-module
+	url = git@github.com:ceosilvajr/yalantis-camera-module.git

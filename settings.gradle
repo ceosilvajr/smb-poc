@@ -1,0 +1,1 @@
+include ':app',':yalantis-camera-module'

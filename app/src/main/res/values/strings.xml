@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">San Miguel POC</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_home">Home</string>
+    <string name="save">Save</string>
+    <string name="title_activity_create_user">Create</string>
+    <string name="add_user">Add User</string>
+</resources>
