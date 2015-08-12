@@ -42,7 +42,7 @@
             android:name=".CreateUserActivity"
             android:label="@string/title_activity_create_user"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

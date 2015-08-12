@@ -27,9 +27,9 @@ public class User extends Model {
     @Column(name = "birthday")
     public Date birthday;
     @Column(name = "gender")
-    private String gender;
+    public String gender;
     @Column(name = "imagePath")
-    private String imagePath;
+    public String imagePath;
     @Column(name = "createdDate")
     public Date createdDate;
 
@@ -55,7 +55,7 @@ public class User extends Model {
                 DateUtils.SECOND_IN_MILLIS).toString();
     }
 
-    public static List<User> getHashtags() {
+    public static List<User> getUsers() {
         return new Select().from(User.class).orderBy("createdDate DESC").execute();
     }
 

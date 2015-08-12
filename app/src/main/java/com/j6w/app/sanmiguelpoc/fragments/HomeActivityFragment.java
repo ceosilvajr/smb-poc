@@ -10,9 +10,17 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.j6w.app.sanmiguelpoc.CreateUserActivity;
 import com.j6w.app.sanmiguelpoc.R;
+import com.j6w.app.sanmiguelpoc.adapters.UserAdapter;
+import com.j6w.app.sanmiguelpoc.objects.User;
+
+import java.util.List;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -20,6 +28,12 @@ import com.j6w.app.sanmiguelpoc.R;
 public class HomeActivityFragment extends Fragment {
 
     private Context mContext;
+
+    private UserAdapter mUserAdapter;
+    private List<User> mUsers;
+
+    @Bind(R.id.lv_users)
+    ListView mLVUsers;
 
     public HomeActivityFragment() {
 
@@ -39,9 +53,19 @@ public class HomeActivityFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         mContext = getActivity();
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+        ButterKnife.bind(this, view);
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mUsers = User.getUsers();
+        mUserAdapter = new UserAdapter(mContext, mUsers);
+        mLVUsers.setAdapter(mUserAdapter);
     }
 
     @Override
@@ -52,7 +76,12 @@ public class HomeActivityFragment extends Fragment {
             startActivity(intent);
             return true;
         }
-
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.unbind(this);
     }
 }

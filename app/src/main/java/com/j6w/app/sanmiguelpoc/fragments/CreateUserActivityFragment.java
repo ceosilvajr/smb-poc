@@ -353,6 +353,7 @@ public class CreateUserActivityFragment extends Fragment {
         try {
             User user = new User(new Date().getTime(), mName, mBirthDay, mGender, mPhotoPath);
             user.save();
+            mContext.finish();
         } catch (ParseException e) {
             e.printStackTrace();
             Toast.makeText(mContext, "Problem found. " + e.getMessage(), Toast.LENGTH_SHORT).show();
